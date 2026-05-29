@@ -26,6 +26,11 @@ final class SeleniumActionFacade {
     final ApplicationAction applicationSection;
     final ApplicationDetail applicationDetailsSection;
     final ProfileAction profileSection;
+    //
+    final Stranka1Akce stranka1;
+    final Stranka2Akce stranka2;
+    final Stranka3Akce stranka3;
+
 
     public SeleniumActionFacade(WebDriver driver) {
         var elementFinder = new ElementFinder(Objects.requireNonNull(driver));
@@ -36,6 +41,9 @@ final class SeleniumActionFacade {
         this.applicationSection = new ApplicationAction(elementFinder);
         this.applicationDetailsSection = new ApplicationDetail(elementFinder);
         this.profileSection = new ProfileAction(elementFinder);
+        this.stranka1 = new Stranka1Akce(elementFinder);
+        this.stranka2 = new Stranka2Akce(elementFinder);
+        this.stranka3 = new Stranka3Akce(elementFinder);
     }
 
     void waitFor(long seconds) {

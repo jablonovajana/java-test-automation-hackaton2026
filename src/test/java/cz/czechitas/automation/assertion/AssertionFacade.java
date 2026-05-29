@@ -20,12 +20,19 @@ public final class AssertionFacade {
     private final ElementFinderInterface elementFinder;
     public final ApplicationAssertion applicationSection;
     public final ApplicationDetailAssertion applicationDetailSection;
+    public final Stranka1Aserce stranka1;
+    public final Stranka2Aserce stranka2;
+    public final Stranka3Aserce stranka3;
+
 
     public AssertionFacade(WebDriver webDriver)
     {
         this.elementFinder = new ElementFinder(webDriver);
         this.applicationSection = new ApplicationAssertion(elementFinder);
         this.applicationDetailSection = new ApplicationDetailAssertion(elementFinder);
+        this.stranka1 = new Stranka1Aserce(elementFinder);
+        this.stranka2 = new Stranka2Aserce(elementFinder);
+        this.stranka3 = new Stranka3Aserce(elementFinder);
     }
 
     public void checkPageUrl(String url) {

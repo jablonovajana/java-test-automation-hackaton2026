@@ -12,9 +12,29 @@ import org.junit.jupiter.params.provider.ValueSource;
  */
 final class Hackaton1Test extends TestRunner {
     @Test
-    void Prihlaseni() {
+    void PrihlaseniSpravnymHeslem() {
         var username = "jjstudent";
         var pwd = "jjstudentheslo";
+        var wait = 1;
+        browser.waitFor(wait);
+        browser.stranka1.klikTlacPrihlasitSe();
+        browser.waitFor(wait);
+        browser.stranka1.vepisInputboxUsername(username);
+        browser.waitFor(wait);
+        browser.stranka1.klikTlacContinue();
+        browser.waitFor(wait);
+        browser.stranka1.vepisInputboxPassword(pwd);
+        browser.waitFor(wait);
+        browser.stranka1.klikTlacContinue();
+        browser.waitFor(3);
+        // a tady asertaci ze jsme prihlaseni
+        asserter.stranka1.cekniPrihlaseno();
+    }
+
+    @Test
+    void PrihlaseniSpatnymHeslem() {
+        var username = "jjstudent";
+        var pwd = "jjstudenthesloSPATNE";
         var wait = 1;
         browser.waitFor(wait);
         browser.stranka1.klikTlacPrihlasitSe();

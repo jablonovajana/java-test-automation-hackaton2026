@@ -23,6 +23,26 @@ final class Stranka1Akce {
         elem.click();
     }
 
+    // prihlasovani
+
+    void klikTlacPrihlasitSe () {
+        var elem = elementFinder.findByXPath("//button[contains(text(),'Přihlásit se')]");
+        elem.click();
+    }
+    void vepisInputboxUsername(String username) {
+        var elem = elementFinder.findByXPath("//input[@id='identifier-field']");
+        elem.sendKeys(username);
+    }
+    void klikTlacContinue () {
+        var elem = elementFinder.findByXPath("//span[@class='cl-internal-2iusy0']");
+        elem.click();
+    }
+    void vepisInputboxPassword (String pwd) {
+        var elem = elementFinder.findByXPath("//input[@id='password-field']");
+        elem.sendKeys(pwd);
+    }
+
+
     /* Jak rychle vytvaret POMy:
     vedle sebe prohlizec s SelectorsHub a textak a do textaku misto slovniho popisu psat rovnou identifikatory:
 

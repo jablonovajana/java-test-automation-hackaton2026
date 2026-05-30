@@ -11,7 +11,27 @@ import org.junit.jupiter.params.provider.ValueSource;
  * @since 1.0.0
  */
 final class Hackaton1Test extends TestRunner {
+    @Test
+    void Prihlaseni() {
+        var username = "jjstudent";
+        var pwd = "jjstudentheslo";
+        var wait = 1;
+        browser.waitFor(wait);
+        browser.stranka1.klikTlacPrihlasitSe();
+        browser.waitFor(wait);
+        browser.stranka1.vepisInputboxUsername(username);
+        browser.waitFor(wait);
+        browser.stranka1.klikTlacContinue();
+        browser.waitFor(wait);
+        browser.stranka1.vepisInputboxPassword(pwd);
+        browser.waitFor(wait);
+        browser.stranka1.klikTlacContinue();
+        browser.waitFor(3);
+        // a tady asertaci ze jsme prihlaseni
+        asserter.stranka1.cekniPrihlaseno();
+    }
 
+    /*
     @Test
     void test1() {
         browser.stranka1.klikTlacZaregistrovat();
@@ -41,4 +61,5 @@ final class Hackaton1Test extends TestRunner {
         browser.headerMenu.goToKindergartenAndSchoolSection();
         browser.orderSection.insertICO(icoValue);
     }
+    */
 }
